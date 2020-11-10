@@ -1,0 +1,51 @@
+<form
+  [formGroup]="airForm"
+  (ngSubmit)="onSubmit(airForm)"
+  class="form-horizontal"
+>
+  <div class="panel-heading">
+    <h3 class="panel-title">Search Airline Fare</h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <div class="col-sm-5">
+        <select
+          id="origin"
+          formControlName="origin"
+          size="2"
+          class="form-control"
+        >
+          <option *ngFor="let loca of locations" [value]="loca.code">
+            {{ loca.desc }}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-5">
+        <select
+          id="destiny"
+          formControlName="destiny"
+          size="2"
+          class="form-control"
+        >
+          <option *ngFor="let loca of locations" [value]="loca.code">
+            {{ loca.desc }}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="roll">Fare Offered</label>
+      <div class="col-sm-4">
+        <span class="help-block">
+          {{ tfare }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <app-alerts></app-alerts>
+</form>
